@@ -9,11 +9,11 @@ namespace test_02.Models
 {
     public class SinoCircle:SinoShape
     {
-        public double radius;
+        public float radius;
 
         public override void draw_on(Graphics canvas) 
         {
-            canvas.DrawEllipse(new Pen(color), 10, 10, 30, 30);
+            canvas.DrawEllipse(new Pen(color), location.X, location.Y, radius, radius);
         }
 
         public override void click_second(Point pointF) { 

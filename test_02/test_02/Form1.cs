@@ -15,20 +15,45 @@ namespace test_02
         public Form1()
         {
             InitializeComponent();
-        }
+            g = pictureBox2.CreateGraphics();
 
-       
+        }
+        Models.SinoShape currentShape;
+        Graphics g;
+
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Models.SinoShape cir = new Models.SinoCircle();
-            Graphics g = pictureBox2.CreateGraphics();
-            cir.draw_on(g);
+            currentShape = new Models.SinoCircle();
         }
+        bool clicked = false;
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show(e.X.ToString() + "," + e.Y.ToString());
+            //MessageBox.Show(e.X.ToString() + "," + e.Y.ToString());
+
+            if (currentShape == null)
+            {
+                MessageBox.Show("請選擇");
+                return;
+            }
+            if (!clicked)
+            {
+                currentShape.location = e.Location;
+                clicked = true;
+            }
+            else
+            {
+                ((Models.SinoCircle)currentShape).radius = distance(e.Location, currentShape.location);
+                currentShape.draw_on(g);
+                clicked = false;
+                currentShape = null;
+            }
+        }
+
+        float distance(PointF p1, PointF p2)
+        {
+            return (float)Math.Pow(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2), 0.5);
         }
     }
 }
