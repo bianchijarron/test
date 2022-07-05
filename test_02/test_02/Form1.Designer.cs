@@ -40,6 +40,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(697, 565);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseClick);
             // 
             // button2
             // 

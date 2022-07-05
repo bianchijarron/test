@@ -25,5 +25,10 @@ namespace test_02
             Graphics g = pictureBox2.CreateGraphics();
             cir.draw_on(g);
         }
+
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show(e.X.ToString() + "," + e.Y.ToString());
+        }
     }
 }
