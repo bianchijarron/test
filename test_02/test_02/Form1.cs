@@ -16,5 +16,14 @@ namespace test_02
         {
             InitializeComponent();
         }
+
+       
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Models.SinoShape cir = new Models.SinoCircle();
+            Graphics g = pictureBox2.CreateGraphics();
+            cir.draw_on(g);
+        }
     }
 }
