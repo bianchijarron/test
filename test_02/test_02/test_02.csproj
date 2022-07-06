@@ -53,6 +53,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\SinoCircle.cs" />
+    <Compile Include="Models\SinoLine.cs" />
     <Compile Include="Models\SinoShape.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

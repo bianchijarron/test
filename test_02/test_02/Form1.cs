@@ -44,16 +44,17 @@ namespace test_02
             }
             else
             {
-                ((Models.SinoCircle)currentShape).radius = distance(e.Location, currentShape.location);
+                currentShape.click_second(e.Location);
                 currentShape.draw_on(g);
                 clicked = false;
                 currentShape = null;
             }
         }
 
-        float distance(PointF p1, PointF p2)
+      
+        private void button3_Click(object sender, EventArgs e)
         {
-            return (float)Math.Pow(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2), 0.5);
+            currentShape = new Models.SinoLine();
         }
     }
 }

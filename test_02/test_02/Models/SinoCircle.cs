@@ -16,8 +16,17 @@ namespace test_02.Models
             canvas.DrawEllipse(new Pen(color), location.X - radius, location.Y - radius, radius*2, radius*2);
         }
 
-        public override void click_second(Point pointF) { 
+        public override void click_second(Point pointF) 
+        {
+            radius = distance(pointF, location);
+
         }
+
+        float distance(PointF p1, PointF p2)
+        {
+            return (float)Math.Pow(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2), 0.5);
+        }
+
 
     }
 }
