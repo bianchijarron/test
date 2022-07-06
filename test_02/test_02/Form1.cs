@@ -20,13 +20,14 @@ namespace test_02
         }
         Models.SinoShape currentShape;
         Graphics g;
+        bool clicked = false;
 
+        List<Models.SinoShape> shapes = new List<Models.SinoShape>();
 
         private void button2_Click(object sender, EventArgs e)
         {
             currentShape = new Models.SinoCircle();
         }
-        bool clicked = false;
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
         {
@@ -45,9 +46,11 @@ namespace test_02
             else
             {
                 currentShape.click_second(e.Location);
-                currentShape.draw_on(g);
+                //currentShape.draw_on(g);
+                shapes.Add(currentShape);
                 clicked = false;
                 currentShape = null;
+                refresh_picturebox();
             }
         }
 
@@ -68,6 +71,24 @@ namespace test_02
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 currentShape.color = colorDialog1.Color;
+            }
+        }
+
+        void refresh_picturebox()
+        {
+            g.Clear(Color.White);
+            foreach(var shape in shapes)
+            {
+                shape.draw_on(g);
+            }
+        }
+
+      private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (clicked)
+            {
+                refresh_picturebox();
+                currentShape.preview(g, e.Location);
             }
         }
     }

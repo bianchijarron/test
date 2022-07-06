@@ -16,7 +16,9 @@ namespace test_02.Models
 
         public virtual void draw_on(Graphics canvas) { }
 
-        public virtual void click_second(Point pointF) { }
+        public virtual void click_second(PointF pointF) { }
+
+        public virtual void preview(Graphics canvas, PointF pointF) { }
 
         public string get_info()
         {
