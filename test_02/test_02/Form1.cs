@@ -56,5 +56,19 @@ namespace test_02
         {
             currentShape = new Models.SinoLine();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (currentShape == null)
+            {
+                MessageBox.Show("請選擇圖型");
+                return;
+            }
+
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                currentShape.color = colorDialog1.Color;
+            }
+        }
     }
 }
