@@ -91,5 +91,24 @@ namespace test_02
                 currentShape.preview(g, e.Location);
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (shape_index > shapes.Count - 1)
+            {
+                timer1.Stop();
+                MessageBox.Show("動畫播放完畢");
+            }
+            shapes[shape_index].draw_on(g);
+            shape_index++;
+        }
+
+        int shape_index = 0;
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            g.Clear(Color.White);
+        }
     }
 }
